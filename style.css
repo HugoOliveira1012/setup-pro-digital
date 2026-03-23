@@ -1,0 +1,664 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a2e; /* Fundo escuro base */
+    color: #fff;
+}
+
+/* --- CABEÇALHO --- */
+header {
+    background-color: #1a1a2e;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #00d1ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00d1ff;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+main {
+    flex: 1; /* Empurra o rodapé para o fim da página */
+    margin-top: 70px; /* Alinhado com a altura do header */
+}
+
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), 
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #00d1ff;
+    border: none;
+    border-radius: 5px;
+    color: #1a1a2e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 4. SEÇÃO DE SERVIÇOS (AJUSTE DE CORES E ALINHAMENTO) */
+#servicos {
+    padding: 100px 5%;
+    background-color: #f4f4f9; /* Fundo levemente cinza para destacar os cards */
+    text-align: center;
+}
+
+#servicos h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #1a1a2e; /* Azul marinho bem escuro */
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    flex: 0 1 350px;
+    background: #ffffff; /* Card branco */
+    padding: 50px 30px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra mais visível */
+    transition: all 0.3s ease;
+    border-bottom: 4px solid #eee;
+}
+
+/* Forçando a cor do texto para não ficar branco */
+.card h3 {
+    color: #1a1a2e !important;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #555 !important;
+    font-size: 0.95rem;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid #00d1ff;
+}
+
+.icon-box {
+    font-size: 45px;
+    color: #00d1ff !important; /* Azul ciano vivo para os ícones */
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* 5. BALÃO DE DETALHES (TOOLTIP) */
+.detalhes {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1a1a2e;
+    color: #ffffff !important;
+    padding: 20px;
+    border-radius: 12px;
+    width: 260px;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.detalhes h4 {
+    color: #00d1ff !important;
+    margin-bottom: 10px;
+}
+
+.card:hover .detalhes {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #1a1a2e;
+    color: #0c0a0a;
+    padding: 40px 5%;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-info .degree {
+    color: #00d1ff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.workana-notice {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .cards-container { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+}
+#calculadora {
+    padding: 60px 5%;
+    background-color: #1a1a2e;
+    color: white;
+    text-align: center;
+}
+
+.calc-container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.destaque {
+    color: #00d1ff;
+    font-size: 1.8rem;
+}
+#trajetoria {
+    padding: 80px 5%;
+    background-color: #f4f4f9;
+}
+
+.container-trajetoria {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+#trajetoria {
+    padding: 80px 5%;
+    background-color: #f4f4f9;
+    text-align: center; /* Centraliza o título e o conteúdo da seção */
+}
+
+#trajetoria h2 {
+    color: #000000 !important; /* Define a cor preta para o título "Quem Somos" */
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.bio-card 
+{
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 5px solid #00d1ff;
+}
+.bio-card h2, .bio-card h3 {
+    color: #1a1a2e; /* Isso tira o branco e coloca o azul escuro da marca */
+    margin-bottom: 5px;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.perfil-foto {
+    font-size: 50px;
+    background: #1a1a2e;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.cargo {
+    color: #00d1ff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.bio-texto p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+}
+
+.skills span {
+    background: #1a1a2e;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin: 0 5px;
+    color: #f8f8fa;
+    font-weight: bold;
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    .container-trajetoria {
+        grid-template-columns: 1fr;
+    }
+}
+/* Para a página deslizar suavementeem vez de dar um "pulo" */
+html {
+    scroll-behavior: smooth;
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 35px;
+    background-color: #00d1ff; /* Cor azul da imagem */
+    color: #1a1a2e;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: #ffffff;
+    transform: scale(1.05); /* Um leve efeito de aumento ao passar o mouse */
+}
+/* Garante que o balão fique preso ao card */
+.card {
+    position: relative; 
+    overflow: visible; /* Importante para o balão aparecer para fora se necessário */
+}
+
+/* Esconde o balão inicialmente */
+.detalhes {
+    position: absolute;
+    bottom: 110%; /* Aparece acima do card */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1a1a2e;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    font-size: 0.85rem;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Triângulo embaixo do balão */
+.detalhes::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #1a1a2e transparent transparent transparent;
+}
+
+/* Mostra o balão ao passar o mouse no card */
+.card:hover .detalhes {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.detalhes h4 {
+    color: #00d1ff;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.detalhes ul {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.detalhes ul li::before {
+    content: "▹ ";
+    color: #00d1ff;
+}
+
+.detalhes hr {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 10px 0;
+}
+/* --- RODAPÉ PERSONALIZADO --- */
+.footer-empresa {
+    background-color: #1a1a2e; /* Fundo escuro oficial */
+    color: white;
+    padding: 50px 5% 20px;
+    border-top: 3px solid #00d1ff;
+    text-align: center; /* Garante alinhamento base */
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Separa info dos ícones */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info p {
+    color: #a0a0b0;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.footer-links h4 {
+    color: #00d1ff;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* ÍCONES NEUTROS */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: #a0a0b0; /* Cor neutra constante */
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff; /* Fica branco apenas no hover */
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-info {
+        text-align: center;
+    }
+}
+/* Estilização dos Ícones do Rodapé */
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.footer-icons a {
+    color: #3b3a3a;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0.5; /* Deixa os ícones sutis como na imagem */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icons a:hover {
+    opacity: 1; /* Ganha destaque total ao passar o mouse */
+    transform: translateY(-3px); /* Pequeno efeito de elevação */
+    color: #0fc1ee; /* Muda para o Azul da marca no hover */
+}
+
+/* Ajuste no Footer para garantir o alinhamento */
+footer {
+    background-color: #fdfdff;
+    padding: 60px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(15, 13, 13, 0.05);
+}
+/* --- SEÇÃO SOBRE A EMPRESA --- */
+#sobre-empresa {
+    padding: 80px 5%;
+    background-color: #1a1a2e; /* Fundo escuro para dar contraste com a Bio branca */
+    color: white;
+    text-align: center;
+}
+
+.container-empresa {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#sobre-empresa h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+#sobre-empresa h2 span {
+    color: #00d1ff; /* Destaque no nome da empresa */
+}
+
+.empresa-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d1d1e0; /* Cinza claro para leitura confortável no escuro */
+    margin-bottom: 20px;
+}
+
+.foco-texto {
+    font-weight: bold;
+    color: #ffffff !important;
+    border-left: 4px solid #00d1ff;
+    padding-left: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .foco-texto {
+        text-align: center;
+        border-left: none;
+        border-top: 2px solid #00d1ff;
+        padding-top: 20px;
+    }
+}
+/* --- RESPONSIVIDADE TOTAL (AJUSTE DE DESLOCAMENTO E AGRUPAMENTO) --- */
+@media (max-width: 768px) {
+    /* 1. Header: Para de empurrar o conteúdo */
+    header {
+        position: relative; /* No mobile, ele não fica fixo para não cobrir o texto */
+        height: auto;
+        padding: 20px 0;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* 2. Hero: Resolve o texto "Código" cortado */
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Diminui o tamanho para caber na largura */
+        line-height: 1.2;
+    }
+
+    /* 3. Seções: Centraliza e remove o deslocamento lateral */
+    #servicos, #trajetoria, #sobre-empresa, #calculadora {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    /* 4. Título Quem Somos: Preto e Centralizado */
+    #trajetoria h2 {
+        color: #000 !important;
+        text-align: center;
+        margin: 0 auto 30px;
+        display: block;
+        width: 100%;
+    }
+
+    /* 5. Cards: Deixa de ser grid e vira coluna única */
+    .cards-container, .container-trajetoria {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .card, .bio-card {
+        width: 100%;
+        max-width: 100%; /* Ocupa a largura disponível sem vazar */
+        padding: 30px 15px;
+    }
+
+    /* 6. Skills: Resolve o agrupamento da imagem */
+    .skills {
+        display: flex;
+        flex-wrap: wrap; /* Faz as skills pularem de linha se não couberem */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .skills span {
+        display: inline-block;
+        margin: 0; /* O gap já resolve o espaço */
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+
+    /* 7. Bio Texto: Melhora a leitura no celular */
+    .bio-texto p {
+        text-align: left; /* Justificado fica ruim em telas muito finas */
+        font-size: 0.95rem;
+    }
+}
